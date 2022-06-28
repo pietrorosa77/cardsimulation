@@ -1,6 +1,7 @@
 module.exports = {
     root: '.',
     build: {
-        outDir: './docs'
+        outDir: './docs',
+        assetsDir: '.'
     }
 }
