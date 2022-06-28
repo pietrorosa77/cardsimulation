@@ -1,9 +1,10 @@
-# Nano React App Default Javascript Template
-
-The default template project for [nano-react-app](https://github.com/nano-react-app/nano-react-app).
-
-- `npm start` — This will spawn a development server with a default port of `3000`.
-- `npm run build` — This will output a production build in the `dist` directory.
+# CARD GAME MAX
+installare nodejs mettersi nella cartella di progetto (dove risiede il package.json) ed eseguire
+- `npm install`
+al termine eseguire
+- `npm start` — lancera' il server di sviluppo sulla porta  `3000`.
+per generare la build dell'applicazione
+- `npm run build` — build di produzione dentro la cartella `dist`.
 
 ## Custom port
 
@@ -20,12 +21,6 @@ vite --port 1234
 ```
 
 ## Adding styles
-
-You can use CSS files with simple ES2015 `import` statements anywhere in your Javascript:
-
-```js
-import "./index.css";
-```
 
 ## Babel transforms
 
