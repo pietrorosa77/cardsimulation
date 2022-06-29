@@ -14,8 +14,8 @@ body {
     height: 500px;
 
     grid-template-columns: repeat(3, 1fr);
-    background: rgb(2, 0, 36);
-    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(203, 203, 228, 1) 0%, rgba(0, 212, 255, 1) 100%);
+    background: rgb(148,148,148);
+    background: linear-gradient(90deg, rgba(148,148,148,1) 0%, rgba(241,241,241,1) 0%, rgba(212,227,230,1) 100%);
 }
 
 .card {

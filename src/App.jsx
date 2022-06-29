@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { Flip } from "gsap/Flip";
-import "./App.css"
+import "./app.css"
 import CardContent from "./CardContent"
 
 gsap.registerPlugin(Flip)
