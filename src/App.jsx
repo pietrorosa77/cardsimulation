@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { Flip } from "gsap/Flip";
+import won from './won'
+import lost from './lost'
 import "./app.css"
 import CardContent from "./CardContent"
 
@@ -13,6 +15,7 @@ const getGameResult = () => {
 
 export default () => {
   const shouldWin = getGameResult();
+  const [opened, setOpened] = useState(true)
   const [finalResult, setFinalResult] = useState()
   const [ready, setReady] = useState(false);
   const [showcard, setShowCard] = useState(-1);
@@ -26,6 +29,10 @@ export default () => {
 
 
   useEffect(() => {
+    if(opened) {
+      setTimeout(() => setOpened(false),2000)
+      return
+    }
     cards.current = gsap.utils.toArray(".card");
     gsap.set(".quickflip", {
       transformStyle: "preserve-3d",
@@ -36,7 +43,7 @@ export default () => {
     tl.to(cardRef2.current, { rotation: "+=360", duration: 0.5 });
     tl.to(cardRef3.current, { rotation: "+=360", duration: 0.5 });
 
-  }, [])
+  }, [opened])
 
 
   const shuffle = () => {
@@ -88,6 +95,18 @@ export default () => {
   return (
     <>
       <div className="container" ref={grid}>
+        {opened && <>
+          <div className={className}>
+          <img className="cardResult" src={lost} />
+        </div>
+        <div className={className} >
+        <img className="cardResult" src={won} />
+        </div>
+        <div className={className}>
+        <img className="cardResult" src={lost} />
+        </div>
+        </>}
+        {!opened && (<>
         <div className={className} ref={cardRef1}>
           <CardContent show={showcard === 1} onCardClick={cardClick} number={1} winning={shouldWin} />
         </div>
@@ -97,7 +116,9 @@ export default () => {
         <div className={className} ref={cardRef3}>
           <CardContent show={showcard === 3} onCardClick={cardClick} number={3} winning={shouldWin} />
         </div>
+        </>)}
       </div>
+  
       {ready && <div className="centerTitle">Seleziona una carta!</div>}
       {finalResult === 'VITTORIA' && <div className="centerTitle won">HAI VINTO!</div>}
       {finalResult === 'SCONFITTA' && <div className="centerTitle lost">HAI PERSO!</div>}
