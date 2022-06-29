@@ -30,7 +30,7 @@ export default () => {
 
   useEffect(() => {
     if(opened) {
-      setTimeout(() => setOpened(false),2000)
+      setTimeout(() => setOpened(false),3000)
       return
     }
     cards.current = gsap.utils.toArray(".card");
