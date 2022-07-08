@@ -65,7 +65,7 @@ export default () => {
     // Animate the change
     Flip.from(state, {
       absolute: true,
-      delay: .2,
+      delay:.2,
       duration: .4,
       onComplete: shuffle
     });
@@ -100,7 +100,7 @@ export default () => {
   const className = ready ? "card play" : "card"
   return (
     <>
-      <div className="topBanner"><img className="banner" src="https://playweb.biz/GuerrillaLeTerrazze/Content/LT_concorso_schermate_banner.png?12345" /></div>
+      {/* <div className="topBanner"><img className="banner" src="https://playweb.biz/GuerrillaLeTerrazze/Content/LT_concorso_schermate_banner.jpg?12345" /></div> */}
       <div className="gridcontainer">
       <div className="container" ref={grid}>
         {opened && <>
@@ -132,7 +132,7 @@ export default () => {
       {finalResult === 'VITTORIA' && <div className="centerTitle won">HAI VINTO!<div>COMUNICA IL TUO CELLULARE ALL'HOSTESS</div></div>}
       {finalResult === 'SCONFITTA' && <div className="centerTitle lost">HAI PERSO!</div>}
       </div>
-      <div className="bottomBanner"><img className="banner" src="https://playweb.biz/GuerrillaLeTerrazze/Content/LT_concorso_schermate_bannerDown.jpg?12345" /></div>
+      {/* <div className="bottomBanner"><img className="banner" src="https://playweb.biz/GuerrillaLeTerrazze/Content/LT_concorso_schermate_bannerDown.jpg?12345" /></div> */}
     </>
   )
 }
