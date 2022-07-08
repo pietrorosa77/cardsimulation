@@ -5,6 +5,7 @@ body{
     margin:0;
     background-color: #dff0d8;
     overflow: hidden;
+    position: relative;
 }
 
 body {
@@ -16,16 +17,36 @@ body {
     width: 100%;
     margin-bottom: 30px;
 }
+@media screen and (orientation:portrait) { 
+    .bottomBanner {
+        width: 100%;
+        margin-top: 10px;
+        position: absolute;
+        bottom:0;
+        left:0;
+    }
 
-.bottomBanner {
-    width: 100%;
-    margin-top: 10px;
+    .banner {
+        width: 100%;
+        height: auto;
+    }
+}
+@media screen and (orientation:landscape) { 
+    .bottomBanner {
+        width: 100%;
+        margin-top: 10px;
+
+    }
+
+    .banner {
+        width: 100%;
+        height: auto;
+        max-height: 250px;
+    }
 }
 
-.banner {
-    width: 100%;
-    height: auto;
-}
+
+
 
 
 .gridcontainer {
