@@ -9,9 +9,9 @@ export default ({ onCardClick, show, number, winning }) => {
     }
     return (
         <div className="cardContent" onClick={cardClick}>
-            {show && winning && <img className="cardResult" src={won} />}
-            {show && !winning && <img className="cardResult" src={lost} />}
-            {!show && <img className="cardBack" src={back} />}
+            {show && winning && <img className="cardResult crimg" src={won} />}
+            {show && !winning && <img className="cardResult crimg" src={lost} />}
+            {!show && <img className="cardBack crimg" src={back} />}
         </div>
     )
 }

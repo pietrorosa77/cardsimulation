@@ -94,16 +94,17 @@ export default () => {
   const className = ready ? "card play" : "card"
   return (
     <>
+      <div className="topBanner"><img className="banner" src="https://playweb.biz/GuerrillaLeTerrazze/Content/LT_concorso_schermate_banner.jpg?12345" /></div>
       <div className="container" ref={grid}>
         {opened && <>
           <div className={className}>
-          <img className="cardResult" src={lost} />
+          <img className="cardResult crimg" src={lost} />
         </div>
         <div className={className} >
-        <img className="cardResult" src={won} />
+        <img className="cardResult crimg" src={won} />
         </div>
         <div className={className}>
-        <img className="cardResult" src={lost} />
+        <img className="cardResult crimg" src={lost} />
         </div>
         </>}
         {!opened && (<>
@@ -118,10 +119,11 @@ export default () => {
         </div>
         </>)}
       </div>
-  
-      {ready && <div className="centerTitle">Seleziona una carta!</div>}
+      <div className="titleContainer">
+      {ready && <div className="centerTitle">SELEZIONA UNA CARTA!</div>}
       {finalResult === 'VITTORIA' && <div className="centerTitle won">HAI VINTO!</div>}
       {finalResult === 'SCONFITTA' && <div className="centerTitle lost">HAI PERSO!</div>}
+      </div>
     </>
   )
 }
