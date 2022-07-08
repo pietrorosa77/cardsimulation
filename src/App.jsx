@@ -8,13 +8,14 @@ import CardContent from "./CardContent"
 
 gsap.registerPlugin(Flip)
 
-const getGameResult = () => {
+const getGameResult = (key) => {
   const params = new URLSearchParams(window.location.search)
-  return params.get('win');
+  return params.get(key);
 }
 
 export default () => {
-  const shouldWin = getGameResult();
+  const shouldWin = getGameResult('win');
+  const gameCode = getGameResult('code');
   const [opened, setOpened] = useState(true)
   const [finalResult, setFinalResult] = useState()
   const [ready, setReady] = useState(false);
@@ -89,12 +90,18 @@ export default () => {
     setReady(false);
     setShowCard(cardNum)
     setFinalResult(shouldWin ? 'VITTORIA' : 'SCONFITTA')
+    setTimeout(() => {
+      if(shouldWin) {
+        window.location.href= `/guerrillaleterrazze/Giocata/InsertCode?code=${gameCode}`;
+      }
+    }, 5000);
   }
 
   const className = ready ? "card play" : "card"
   return (
     <>
-      <div className="topBanner"><img className="banner" src="https://playweb.biz/GuerrillaLeTerrazze/Content/LT_concorso_schermate_banner.jpg?12345" /></div>
+      <div className="topBanner"><img className="banner" src="https://playweb.biz/GuerrillaLeTerrazze/Content/LT_concorso_schermate_banner.png?12345" /></div>
+      <div className="gridcontainer">
       <div className="container" ref={grid}>
         {opened && <>
           <div className={className}>
@@ -119,11 +126,13 @@ export default () => {
         </div>
         </>)}
       </div>
+      </div>
       <div className="titleContainer">
       {ready && <div className="centerTitle">SELEZIONA UNA CARTA!</div>}
-      {finalResult === 'VITTORIA' && <div className="centerTitle won">HAI VINTO!</div>}
+      {finalResult === 'VITTORIA' && <div className="centerTitle won">HAI VINTO!<div>COMUNICA IL TUO CELLULARE ALL'HOSTESS</div></div>}
       {finalResult === 'SCONFITTA' && <div className="centerTitle lost">HAI PERSO!</div>}
       </div>
+      <div className="bottomBanner"><img className="banner" src="https://playweb.biz/GuerrillaLeTerrazze/Content/LT_concorso_schermate_bannerDown.jpg?12345" /></div>
     </>
   )
 }
