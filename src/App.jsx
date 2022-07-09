@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { Flip } from "gsap/Flip";
-import won from './won'
-import lost from './lost'
 import "./app.css"
 import CardContent from "./CardContent"
 
@@ -111,13 +109,13 @@ export default () => {
       <div className="container" ref={grid}>
         {opened && <>
           <div className={className}>
-          <img className="cardResult crimg" src={lost} />
+          <img className="cardResult crimg" src="https://playweb.biz/GuerrillaLeTerrazze/Content/LT_carte_gioco_fronte_NOvincita.png" />
         </div>
         <div className={className} >
-        <img className="cardResult crimg" src={won} />
+        <img className="cardResult crimg" src="https://playweb.biz/GuerrillaLeTerrazze/Content/LT_carte_gioco_fronte_vincita.png" />
         </div>
         <div className={className}>
-        <img className="cardResult crimg" src={lost} />
+        <img className="cardResult crimg" src="https://playweb.biz/GuerrillaLeTerrazze/Content/LT_carte_gioco_fronte_NOvincita.png" />
         </div>
         </>}
         {!opened && (<>
